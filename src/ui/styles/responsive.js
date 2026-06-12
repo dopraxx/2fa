@@ -570,16 +570,16 @@ export function getResponsiveStyles() {
       }
       
       .secrets-list {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         gap: 12px;
         justify-content: center;
         text-align: left;
       }
-      
+
       .content {
         text-align: center;
       }
-      
+
       .secret-header {
         flex-wrap: nowrap;
         align-items: center;
@@ -653,9 +653,9 @@ export function getResponsiveStyles() {
         max-width: 750px;
       }
 
-      /* iPad 和平板两列卡片布局 */
+      /* iPad 和平板动态多列卡片布局 */
       .secrets-list {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 14px;
         justify-content: center;
         text-align: left;
@@ -838,11 +838,11 @@ export function getResponsiveStyles() {
       }
 
       .container {
-        max-width: 900px;
+        max-width: 1400px;
       }
 
       .secrets-list {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 16px;
         justify-content: center;
         text-align: left;
@@ -1045,6 +1045,7 @@ export function getResponsiveStyles() {
       backdrop-filter: blur(10px);
       border: 1px solid var(--toast-border);
       min-width: 200px;
+      max-width: min(90vw, 560px);
       text-align: center;
       font-size: 16px;
       font-weight: 500;
@@ -1057,7 +1058,10 @@ export function getResponsiveStyles() {
 
     .toast-message {
       flex: 1;
-      white-space: nowrap;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      line-height: 1.5;
     }
 
     /* 响应式设计 */
@@ -1241,6 +1245,13 @@ export function getResponsiveStyles() {
       font-size: 13px !important;
       min-width: auto !important;
       width: auto !important;
+    }
+
+    /* P1.6 手机端 btn-compact 至少 44px 高，保证触控 */
+    @media (max-width: 768px) {
+      .btn-compact {
+        min-height: 44px !important;
+      }
     }
 
     .scanner-hint {
